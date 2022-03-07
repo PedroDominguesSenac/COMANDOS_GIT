@@ -1,0 +1,126 @@
+COMANDOS GIT
+
+mkdir -criar pasta
+
+rm dir -apagar pasta
+
+rm -r -apagar diretório forçado
+
+rm -rf nome_da_pasta -apagar repositório
+
+cd -para ir para home
+
+cd .. -para retornar a pasta
+
+git init -iniciar um repositório
+
+ls -listar arquivos existentes
+
+ls -la -para listar diretórios existentes
+
+cd .git -abrir diretório .git
+
+ls -dentro do .git para checar branches/hooks, abrir pastas que guardam configurações do repositório
+
+vi Nome_do_arquivo.md -para criar e editar arquivos
+i -para editar o arquivo
+:wq -para fechar o arquivo
+
+rm nome_do_arquivo -apagar o arquivo
+
+rm -rf -força o arquivo apagar
+
+git add "Nome_do_arquivo.md" -para adicionar arquivos
+
+git status -mostra o estado dos arquivos
+
+git commmit -m "qualquer_nome" -para commitar arquivos
+
+git commit -am -para arquivos que já foram commitados antes
+
+git commit -a -para forcar a exclusão de arquivos, colocar uma mensagem para concluir exclusão
+
+git log -mostra o histórico de versões e informação de modificações
+
+git log --graph -mostra o gráfico dos arquivos commitados
+
+git log --decorate -mostra o histórico entre branches e outras informações
+
+git log --author "nome_ou_letra" -fazer uma busca
+
+git shortlog -colocar em ordem alfabética os usuários que fizeram modificações, quantos e quais commits fizeram
+
+git shortlog -sn -mostra quantidade de commits e quem commitou
+
+git shortlog --graph -ver as mudanças em gráfico
+
+git show chave_do_commit -mostar alterações que foram feitas no arquivo
+
+git diff -ver qual mudança foi feita no arquivo, representada por um "+"
+
+git diff --name -only -saber somente os nomes dos arquivos que foram modificados
+
+git checkout "nome_do_arquivo.md" -retornar alguma modificação indesejada no arquivo
+
+git reset HEAD nome_do_arquivo -retirar do stage
+
+git reset --soft chave_do_commit -retorna o nome do commit, mas não retorna o stage. Não muda a informação do arquivo
+
+git reset --mixed chave_do_commit -retorna o nome do commit e retorna o stage. Não muda a informação do arquivo
+
+git reset hard chave_do_commit -retorna todas modificações, retorna para informações anteriores
+
+
+VINCULANDO O REPOSITORIO REMOTO
+
+help.github.com/articles/connecting-to-github-with-ssh - para qualquer dúvida, passo a passo SSH.
+
+
+INÍCIO - GERANDO CHAVE SSH
+
+- digitar no terminal o código abaixo, colocar o e-mail usado no GITHUB corretamente entre aspas
+ ssh-keygen -t ed25519 -C "your_email@example.com"
+- esperar o comando rodar, ele vai gerar a chave e coloca-la em uma pasta padrão e não precisa colocar senha, somente ir dando enter
+
+
+PARA SABER AS MINHAS CHAVES SSH - fazer/seguir esses comandos um depois o outro
+
+cd ~/.ssh
+- abrir esse é o diretório onde ficam minhas chaves SSH, o ~ é nossa HOME
+
+
+ls
+- para listar nossos id_rsa ou id_pub
+
+
+cat copia-o-id.pub enter
+- com essa chave gerada so precisar ir no site GITHUB, em configurações SSH e GPG keys, lá clicar em "new SSH key", copia o codigo que gerou do id_pub
+
+
+LIGANDO REPOSITORIO LOCAL A UM REMOTO
+
+- quando vc criar um novo repositorio no site GITHUB, logo após ele mostra o passo a passo para linkar o repositorio remoto ao terminal, que seria:
+
+git remote add origin git@github.com:seu_nome_do_git_hub/nome_repositorio.git
+-depois
+git push -u origin master -atualizar os dados no repositório remoto
+
+git remote -para saber se está conectado ao repositório
+
+git remote -v -para listar os repositórios que estou conectados
+
+git push origin master -enviar atualizações para repositório remoto
+
+git clone "link_ssh" "nome_da_pasta-clone" -para clonar a pasta, sair antes do repositório
+
+git checkout -b 'nome_do_branch" -criar branch
+
+git branch -para saber quantos branches têm e qual estou
+
+git checkout "nome_do_branch" -para mudar de branch
+
+git branch -D "nome_do_branch" -para apagar o branch
+
+git merge "nome_do_branch" -para fazer um merge, mostra no log, mas bagunça o o histórico
+
+git rebase "nome_do_branch" -para fazer um rebase, não mostra no log, não bagunça o histórico
